@@ -11,10 +11,25 @@ const contactInfo = [
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validate = (): boolean => {
+    const newErrors: Record<string, string> = {};
+    if (!form.name.trim()) newErrors.name = "Name is required.";
+    if (!form.email.trim()) {
+      newErrors.email = "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      newErrors.email = "Please enter a valid email address.";
+    }
+    if (!form.message.trim()) newErrors.message = "Message is required.";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder submit handler
+    if (!validate()) return;
+    // TODO: integrate with a backend or email service (e.g. Resend, Formspree)
     setSubmitted(true);
   };
 
@@ -107,14 +122,16 @@ export default function Contact() {
                     <input
                       id={field.id}
                       type={field.type}
-                      required
                       placeholder={field.placeholder}
                       value={form[field.id as keyof typeof form]}
                       onChange={(e) =>
                         setForm((f) => ({ ...f, [field.id]: e.target.value }))
                       }
-                      className="w-full bg-[#111] border border-white/10 text-white placeholder-white/20 px-4 py-3 text-sm focus:outline-none focus:border-[#d4af37] transition-colors"
+                      className={`w-full bg-[#111] border text-white placeholder-white/20 px-4 py-3 text-sm focus:outline-none transition-colors ${errors[field.id] ? "border-red-500" : "border-white/10 focus:border-[#d4af37]"}`}
                     />
+                    {errors[field.id] && (
+                      <p className="mt-1 text-red-400 text-xs">{errors[field.id]}</p>
+                    )}
                   </div>
                 ))}
 
@@ -134,8 +151,11 @@ export default function Contact() {
                     onChange={(e) =>
                       setForm((f) => ({ ...f, message: e.target.value }))
                     }
-                    className="w-full bg-[#111] border border-white/10 text-white placeholder-white/20 px-4 py-3 text-sm focus:outline-none focus:border-[#d4af37] transition-colors resize-none"
+                    className={`w-full bg-[#111] border text-white placeholder-white/20 px-4 py-3 text-sm focus:outline-none transition-colors resize-none ${errors.message ? "border-red-500" : "border-white/10 focus:border-[#d4af37]"}`}
                   />
+                  {errors.message && (
+                    <p className="mt-1 text-red-400 text-xs">{errors.message}</p>
+                  )}
                 </div>
 
                 <button
