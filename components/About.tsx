@@ -62,7 +62,7 @@ export default function About() {
             </h3>
             <div className="space-y-4 text-white/60 leading-relaxed text-sm md:text-base">
               <p>
-                I'm Alex Rivera — a video director, cinematographer, and
+                I'm Aaron Cantu — a video director, cinematographer, and
                 storyteller obsessed with the art of sports filmmaking. With
                 over 5 years embedded in D1 football programs, I know what it
                 takes to capture the emotion, grit, and glory that define

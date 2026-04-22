@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Alex Rivera | Director of Football Video",
+  title: "Aaron Cantu | Director of Football Video",
   description:
     "Cinematic sports videography and creative direction. D1 athletic videography at Southern Utah University and University at Buffalo.",
   keywords: [

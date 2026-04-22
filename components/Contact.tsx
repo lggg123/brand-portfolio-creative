@@ -173,7 +173,7 @@ export default function Contact() {
       {/* Footer */}
       <div className="max-w-7xl mx-auto mt-32 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
         <p className="text-white/20 text-xs uppercase tracking-widest">
-          © {new Date().getFullYear()} Alex Rivera. All rights reserved.
+          © {new Date().getFullYear()} Aaron Cantu. All rights reserved.
         </p>
         <p className="text-white/20 text-xs uppercase tracking-widest">
           Director of Football Video

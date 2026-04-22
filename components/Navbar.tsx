@@ -33,7 +33,7 @@ export default function Navbar() {
           href="#hero"
           className="text-white font-bold text-lg tracking-widest uppercase hover:text-[#d4af37] transition-colors"
         >
-          AR<span className="text-[#d4af37]">.</span>
+          AC<span className="text-[#d4af37]">.</span>
         </Link>
 
         {/* Desktop links */}

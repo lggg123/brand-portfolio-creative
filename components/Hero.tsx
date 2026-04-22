@@ -30,8 +30,8 @@ export default function Hero() {
 
         {/* Main title */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-none tracking-tight mb-6">
-          <span className="block text-white">Alex</span>
-          <span className="block shimmer-gold">Rivera</span>
+          <span className="block text-white">Aaron</span>
+          <span className="block shimmer-gold">Cantu</span>
         </h1>
 
         {/* Role */}
